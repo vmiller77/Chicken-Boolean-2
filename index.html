@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+
+        function onLoadFunctions() {
+            //some onload functions?
+        }
+
+        window.onload = onLoadFunctions;
+
+
+        var audio = new Audio('assets/chicken.mp3');
+        audio.loop = true;
+
+        function magic8() {
+            //make gif show
+            document.getElementById("squat").style.visibility = "visible"
+            //make button disappear
+            document.getElementById("magic8").style.visibility = "hidden"
+            setTimeout(magic8Back, 2000);
+        }
+        function magic8Back() {
+            //make gif show
+            document.getElementById("squat").style.visibility = "hidden"
+            //make button disappear
+            document.getElementById("magic8").style.visibility = "visible"
+        }
+
+        function playMusic() {
+            var button = document.getElementById("jams");
+
+            if (audio.duration > 0 && !audio.paused) {
+                audio.pause();
+                button.innerText = "Please unpause me :("
+                //hide the big bird dancing
+                document.getElementById("bigBird").style.visibility = "hidden"
+            } else {
+                audio.play();
+                button.innerText = "Press to pause musik"
+                //show the big bird dancing
+                document.getElementById("bigBird").style.visibility = "visible"
+            }
+
+        }
+
+
+        function checkForBool() {
+            var mealName = document.getElementById("meal").value;
+
+            if (mealName.includes("chicken") || mealName.includes("bouillon") || mealName.includes("boul") || mealName.includes("boil") || mealName.includes("boolean")) {
+                //showing the true pic then spam with alert
+                document.getElementById("troof").src = "assets/false.png"
+                document.getElementById("troof").style.visibility = "visible"
+                alert("FALSE")
+                alert("YOU DO NOT NEED CHICKEN BUILLON!")
+                alert("PRESS OKAY IF YOU REALIZE YOU SHOULD NOT USE CHICKEN BUILLLON WITH YOUR RECIPE!")
+            } else {
+                //showing the false pic then spam with alert
+                document.getElementById("troof").src = "assets/true.png"
+                document.getElementById("troof").style.visibility = "visible"
+                alert("TRUE")
+                alert("This will taste SO GOOD with chicken boolean")
+                alert("You will disappoint guests without using chicken buillon")
+            }
+        }
+
+
+    </script>
+
+    <style type="text/css">
+        #leftDiv {
+            float: left;
+            width: 70%;
+        }
+
+        #rightDiv {
+            float: left;
+            width: 30%;
+            background-color: pink;
+        }
+
+        #magic8 {
+            border-radius: 100%;
+            background-color: white;
+            color: black;
+            padding-left: 5px;
+            border-width: 15px;
+        }
+
+        #title {}
+
+        #interrogate {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        #checkButton {
+            background-color: #FF0000;
+            border: none;
+            color: white;
+            padding: 20px 42px;
+            text-align: right;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        #putBool {}
+
+        #troof {
+            visibility: hidden;
+            height: 200px;
+        }
+
+        #bigBird {
+            visibility: hidden;
+            height: 200px;
+        }
+
+        #mona {
+            height: 200px;
+        }
+
+        #jams {
+            background-color: #FF0000;
+            border: none;
+            color: white;
+            padding: 30px 42px;
+            text-align: right;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        #foot {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .column {
+            float: left;
+            height: 50px;
+            padding: 5px;
+        }
+
+        #meal {
+            height: 50px;
+        }
+
+        #squat {
+            visibility: hidden;
+        }
+
+        body {
+            height: 100%;
+            background-color: green;
+
+        }
+
+        button:hover {
+            cursor: url('assets/starCursor.png'), auto;
+        }
+
+        html {
+            cursor: url('assets/cursor1.png'), auto;
+            animation: cursor 1s linear infinite;
+        }
+
+        @keyframes cursor {
+            0% {
+                cursor: url('assets/c1.png'), auto;
+            }
+
+            25% {
+                cursor: url('assets/c2.png'), auto;
+            }
+
+            50% {
+                cursor: url('assets/c3.png'), auto;
+            }
+
+            75% {
+                cursor: url('assets/c4.png'), auto;
+            }
+
+            100% {
+                cursor: url('assets/c5.png'), auto;
+            }
+        }
+
+        .github {
+            width: 70px;
+            height: 70px;
+            margin: 5.5px 5.5px 5.5px 5.5px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+        #ad {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            width: 20%;
+        }
+    </style>
+</head>
+<html>
+
+<body>
+    <div id="leftDiv">
+        <h1 id="title">Happy Holidays! Do you need chicken boulliun?</h1>
+        <img src="assets/snowman.png" alt="snowman" height="50px">
+        <form id="interrogate">
+            What are you making?
+            <img id="arrow" src="assets/arrow.gif" alt="arrow" width="700" style="position:relative; top:30px">
+            <input id="meal" type="text" placeholder="Type your meal pls" name="Fname">
+        </form>
+        <br></br>
+
+        <button type="button" id="checkButton" onclick="checkForBool()">Press me to see if you need billion</button>
+
+        <h2 id="putBool">Should you put builion in your meal?</h2>
+        <img id="troof" src="assets/true.png" alt="TRUE OR FALSE">
+
+        <img id="bigBird" src="assets/chicken.gif" alt="Dancing Bird">
+
+        <img id="mona" src="assets/octocatHoliday.png" alt="mona" onmouseover="this.style.visibility = 'hidden';"
+            onmouseout="this.style.visibility = 'visible';">
+
+        <br></br>
+
+
+        <div id="foot">
+            <a class="column" id="gitLink" href="https://github.com/alexmiller522/Chicken-Boolean/">
+                <img src="assets/github.png" alt="https://github.com/alexmiller522/Chicken-Boolean/" width="50" height="50">
+            </a>
+            <h2 class="column">#WomenMadeContent</h2>
+            <img class="column" src="assets/ms.toe.png" alt="Miss L Toe" height="50px">
+            <button id="jams" height="50px" type="button" onclick="playMusic()">Play some JAMS</button>
+            <a class="column" id="musicLink" href="https://chicken.mp3juices.icu/">
+                <img src="assets/music.png" alt="find the artist here" width="90" height="90">
+            </a>
+            <a class="column" id="paint" href="https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9">
+                <img src="assets/paint.png" alt="use paint" width="130" height="90">
+            </a>
+
+        </div>
+    </div>
+
+    <div id="rightDiv">
+        <h2>Shake(press) your magic egg ball to see if you have builllon in your future!</h2>
+        <button id="magic8" height="50px" type="button" onclick="magic8()">8</button>
+        <img id="squat" src="assets/squat.gif" alt="Laying a True Ornament" height="200px">
+    </div>
+    <img id="ad" src="assets/ad.png" alt="Place your advertisements here">
+
+</body>
+
+</html>
